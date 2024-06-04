@@ -1,0 +1,597 @@
+#content{
+    background-color: aquamarine;
+    height: 60%;
+    width: 60%;
+    ;
+}
+#button_1{
+  background-color: #04AA6D; Green
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  justify-content: center;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  margin-left: 31.2%;
+}
+
+#B1{
+  margin-left: 31.2%;
+  justify-content: center;
+  text-align: center;
+  display: inline-block;
+}
+
+#B2{
+  margin-inline-end: 10.2%;
+  justify-content: center;
+  text-align: center;
+  display: inline-block;
+}
+
+#B3{
+  
+}
+
+
+#button_2{
+    background-color: rgb(100, 216, 61); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    justify-content: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    margin-left: 13.9%;
+  }
+
+#button_3{
+    background-color: rgb(100, 216, 61); /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    justify-content: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+
+#button_4{ background-color: #f3d409; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    justify-content: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    margin-left: 43.5%;
+  }
+  #button_5{ background-color: #f3d409; /* Green */ 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    justify-content: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+  #button_6{ background-color: #d50b51; /* Green */ 
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    justify-content: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    margin-left: 43.5%;
+  }
+#button_7{
+    background-color: #d50b51; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    justify-content: center;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  }
+
+
+#heading{
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+#video_stream{
+    text-align: left;
+    justify-content: left;
+    display: block;
+    margin-left: 100;
+    margin-right: auto;
+    position: relative;
+    display:flex;
+}
+
+.container {
+  display: flex;  /* Make the container a flexbox */
+  align-items: center;  /* Align content vertically within the container */
+  padding: 5%;
+  background-color: #f0f0f0;
+  border-radius: 5px;
+}
+
+.label {
+  font-weight: bold;
+  margin-right: 10px;  /* Add some space between labels and values */
+}
+
+.arrow-container {
+  display: flex;
+  /*  justify-content: space-around; */
+  width: 200px;  /* Adjust width as needed */
+  /* margin-left: 10%; */
+  /* padding: 1%; */
+}
+
+.arrow {
+  width: 100px;  /* Adjust button width as needed */
+  height: 50px;
+  background-color: #ddd;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 24px;
+  text-align: center;
+  display: inline-block;
+  /* margin-left: 10%; */
+}
+
+.up, .down {
+  /* Optional styling for up and down arrows */
+
+}
+
+/* toggle in label designing */
+.toggle {
+  position : relative ;
+  display : inline-block;
+  width : 100px;
+  height : 52px;
+  background-color: red;
+  border-radius: 30px;
+  border: 2px solid gray;
+  display: inline-block;
+}
+     
+/* After slide changes */
+.toggle:after {
+  content: '';
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: gray;
+  top: 1px; 
+  left: 1px;
+  transition:  all 0.5s;
+}
+     
+/* Toggle text */
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+}
+     
+/* Checkbox checked effect */
+.checkbox:checked + .toggle::after {
+  left : 49px; 
+}
+     
+/* Checkbox checked toggle label bg color */
+.checkbox:checked + .toggle {
+  background-color: green;
+}
+     
+/* Checkbox vanished */
+.checkbox { 
+  display : none;
+}
+#slider{
+  margin-left: 10%;
+}
+
+#option-container {
+  display: none;  /* Initially hide the option container */
+  position: absolute;  /* Absolute positioning for flexible placement */
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  list-style: none;  /* Remove default list styling */
+  margin-left: 30%;
+}
+
+#option-container ul {
+  padding: 0;  /* Remove default padding for list items */
+  margin: 0;  /* Remove default margin for list items */
+  display:inline-block;
+  /* margin-left: 15%; */
+}
+
+#option-container li {
+  margin-bottom: 5px;  /* Add some space between options */
+  cursor: pointer;  /* Set cursor to pointer for visual cue */
+  
+}
+
+#option-container.show {
+  display: inline-block;
+  margin-left: 25%;  /* Show the option container on click */
+}
+
+#Objective_Selection {
+  margin-left: 20%;
+}
+
+body {
+  margin: 0;  /* Remove default body margin */
+}
+
+.content {
+  padding: 20px;  /* Add some padding to the main content */
+}
+
+.menu-bar {
+  position: fixed;  /* Fix the menu bar to the right side */
+  top: 0;  /* Start at the top of the page */
+  right: 0;  /* Position it on the right side */
+  width: 30%;  /* Adjust width as needed */
+  height: 100px;  /* Set height to 100% viewport height */
+  background-color: #f0f0f0;
+  list-style: none;  /* Remove default list style for menu items */
+  padding: 100px;
+}
+
+.menu-bar ul {
+  padding: 0;  /* Remove default padding from the unordered list */
+  margin: 0;  /* Remove default margin from the unordered list */
+}
+
+.menu-bar li {
+  margin-bottom: 10px;  /* Add some space between menu items */
+}
+
+.menu-bar a {
+  text-decoration: none;  /* Remove default underline for links */
+  color: #333;  /* Set link color */
+  display: block;  /* Make links fill the entire width of the menu item */
+  padding: 5px 10px;  /* Add some padding to links */
+}
+
+.menu-bar a:hover {
+  background-color: #ddd;  /* Change background color on hover */
+}
+
+.capture-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db;  /* Adjust background color as desired */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.capture-button i {
+  margin-right: 5px;  /* Add some space between icon and text */
+}
+
+.capture-button:hover {
+  background-color: #2980b9;  /* Change background color on hover */
+}
+
+
+.video-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #2ecc71;  /* Adjust background color as desired */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.video-button i {
+  margin-right: 5px;  /* Add some space between icon and text */
+}
+
+.video-button:hover {
+  background-color: #27ae60;  /* Change background color on hover */
+}
+
+.gallery-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #9b59b6;  /* Adjust background color as desired */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.gallery-button i {
+  margin-right: 5px;  /* Add some space between icon and text */
+}
+
+.gallery-button:hover {
+  background-color: #8e44ad;  /* Change background color on hover */
+}
+
+.fullscreen-button {
+  display: inline-block;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db;  /* Adjust background color as desired */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.fullscreen-button img {
+  width: 20px;  /* Adjust image size as needed */
+  height: 20px;  /* Adjust image size as needed */
+}
+
+.fullscreen-button:hover {
+  background-color: #2980b9;  /* Change background color on hover */
+}
+
+.settings-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #f1c40f;  /* Adjust background color as desired */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.settings-button img {
+  width: 20px;  /* Adjust image size as needed */
+  height: 20px;  /* Adjust image size as needed */
+  margin-right: 5px;  /* Add some space between icon and text */
+}
+
+.settings-button:hover {
+  background-color: #e6a90c;  /* Change background color on hover */
+}
+
+.autofocus-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db;  /* Adjust background color as desired */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.autofocus-button i {
+  margin-right: 5px;  /* Add some space between icon and text */
+}
+
+.autofocus-button:hover {
+  background-color: #2980b9;  /* Change background color on hover */
+}
+
+.scan-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db;  /* Adjust background color as desired */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.scan-button i {
+  margin-right: 5px;  /* Add some space between icon and text */
+}
+
+.autofocus-button:hover {
+  background-color: #2980b9;  /* Change background color on hover */
+}
+
+/* 
+.hidden {
+  display: none;
+}
+
+#additionalButtons {
+  margin-top: 20px;
+}
+
+#additionalButtons button {
+  margin-right: 10px;
+} */
+
+.hidden {
+  display: none;
+}
+
+#additionalButtons {
+  margin-top: 20px;
+}
+
+#additionalButtons button {
+  margin-right: 10px;
+}
+
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+
+.save-button-container {
+  display: flex;
+  gap: 10px;  /* Add some space between buttons */
+}
+
+.save-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  background-color: #3498db;  /* Adjust background color as desired */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.save-button:hover {
+  background-color: #2980b9;  /* Change background color on hover */
+}
+
+footer {
+  background-color: #f2f2f2;
+  padding: 1rem;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+footer p {
+  color: #333;
+  margin: 0;
+}
+
+
+/* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slidecontainer {
+  width: 100%; /* Width of the outside container */
+}
+
+/* The slider itself */
+.slider {
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  width: 100%; /* Full-width */
+  height: 25px; /* Specified height */
+  background: #d3d3d3; /* Grey background */
+  outline: none; /* Remove outline */
+  opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+/* Mouse-over effects */
+.slider:hover {
+  opacity: 1; /* Fully shown on mouse-over */
+}
+
+/* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+.slider::-moz-range-thumb {
+  width: 25px; /* Set a specific slider handle width */
+  height: 25px; /* Slider handle height */
+  background: #04AA6D; /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+

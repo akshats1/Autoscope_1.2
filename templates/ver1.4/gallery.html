@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Gallery</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Image Gallery</h1>
+
+  <div id="images">
+    </div>
+    <a href="javascript:history.back()" class="back-button">
+        <i class="fas fa-arrow-left"></i> Go Back
+      </a>
+      
+    <style>
+        /* Style the gallery and images as desired */
+
+#images {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+#images img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  margin: 10px;
+}
+
+.back-button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: #eee;
+  border: none;
+  color: #333;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none; /* removes underline from link */
+  transition: background-color 0.2s ease-in-out;
+}
+
+.back-button:hover {
+  background-color: #ddd;
+}
+
+.back-button i {
+  margin-right: 5px;
+}
+
+
+    </style>
+</body>
+</html>

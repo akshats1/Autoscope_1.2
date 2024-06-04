@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><b>Autoscope V1 Stream</b></title>
+  <link href = "/static/style.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+ 
+</head>
+<body id="content">
+  
+  <!-- <h1 id="heading">Autoscope Version 1</h1> -->
+  <!-- <img src="{{ url_for('video_feed') }}" alt="Autoscope V1 Video Stream" width="1800" height="950" id="video_stream"> -->
+  <div class="video-container">
+    <img src='/video_feed' alt="Autoscope V1 Video Stream" width="650" height="200" id="video_stream" class="video-feed" />
+</div>
+  
+<body>
+<div id="right-menu">
+<nav class="menu-bar">
+    <ul>
+        <li><a href="#"></a>
+          <button onclick="captureImage()" class="capture-button">
+            <!--<button class="video-button">-->
+               <button onclick="captureVideo()" class="video-button"></button>
+         <button onclick="stopVideo()">Stop Streaming</button>
+            
+            <i class="fas fa-camera"></i>  Capture
+            <script src="{{ url_for('static',filename='scripts.js') }}"></script>
+        </button></li>
+        <li><a href="#"></a>
+          <button class="video-button">
+            <i class="fas fa-play"></i>Play Video
+        </button></li>
+        <li><a href="#"></a>
+          <button class="gallery-button">
+            <i class="fas fa-images"></i>Gallery
+        </button></li>
+        <li><a href="#"></a>
+          <button class="fullscreen-button" id="fullscreen-toggle">
+            <i class="fas fa-expand"></i>
+        </button></li>
+        <li><a href="#"></a>
+        <button id="showButtonsBtn" class="settings-button">Settings</button>
+<div id="additionalButtons" class="hidden">
+  <button>DRC Strength</button>
+  <button>Flash Mode</button>
+  <!-- <button>Button 3</button> -->
+  <button>Image Effect</button>
+  <button>Image Flip</button>
+  <div class="slidecontainer">
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">Image Contrast
+  </div>
+  <div class="slidecontainer">
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">Image Sharpness
+  </div>
+  <div class="slidecontainer">
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">Image ISO
+  </div>
+  <div class="slidecontainer">
+    <input type="range" min="1" max="100" value="50" class="slider" id="myRange">Livestream frame rate
+  </div>
+  
+</div>
+
+        </li>
+         <li><a href="#"></a>
+          <button class="autofocus-button" autofocus>  <i class="fas fa-crosshair"></i>  Auto Focus
+          </button>
+         </li>
+         <li><a href="#"></a>
+          <button class="scan-button" autofocus>  <i class="fas fa-crosshair"></i>  Slide Scan
+          </button>
+         </li>
+         <li>
+          <!-- <button id="showButtonsBtn" class="settings-button">Save</button> -->
+          <div class="save-button-container">
+            <button class="save-button" data-save-type="desktop">
+                <i class="fas fa-download"></i> Save to Desktop
+            </button>
+            <button class="save-button" data-save-type="any">
+                <i class="fas fa-save"></i> Save to Device
+            </button>
+        </div>
+        
+    
+        
+    </div>
+
+<script src="scripts.js"></script>
+        </button>
+         </li>
+      </ul>
+</nav>
+</div>
+<footer>
+    <div class="container">
+        <span class="label">X:</span>
+        <span id="x-coord">-</span>
+        <br>
+        <span class="label">Y:</span>
+        <span id="y-coord">-</span>
+        <br>
+        <span class="label">Z:</span>
+        <span id="z-coord">-</span>
+        <div class="arrow-container">
+            <button id="B1" class="arrow up">&#8593;</button>
+            <button id="B2" class="arrow down">&#8595;</button>
+            <button id="B3" class="arrow left">&#8592;</button>
+            <button id="B4" class="arrow right">&#8594;</button>
+            <button id="B5" class="arrow up">&#8593;</button>
+          <button id="B6" class="arrow down">&#8595;</button>
+        </div>
+        <div class="arrow-container">
+          <!-- <button id="B3" class="arrow up">&#8593;</button> -->
+          <!-- <button id="B2" class="arrow down">&#8595;</button> -->
+         
+      </div>
+        <div id="slider">
+          <input type="checkbox"
+          id="switch"
+          class="checkbox" />
+           
+          <label for="switch"
+          class="toggle">
+          <p>
+           OFF    ON
+          </p>
+          </label>
+          </div>  
+          <div id="Objective_Selection">
+          <button class="scan-button" id="open-options">Select Objective</button>
+          <div id="option-container">
+            <ul>
+                <li><button>4X</button></li>
+                <li><button>10X</button></li>
+                <li><button>40X</button></li>
+            </ul>
+        </div>
+        <button class="settings-button" onclick="location.href='start.html'">Home Page</button>
+          </div>
+    
+        <script>
+            const openButton = document.getElementById("open-options");
+            const optionContainer = document.getElementById("option-container");
+    
+            openButton.addEventListener("click", function() {
+                optionContainer.classList.toggle("show");
+            });
+        </script>
+    </div>
+
+
+
+    <script>
+        // Replace this with your logic to fetch the X, Y, Z coordinates (e.g., from an API or user input)
+        const xValue = 10;
+        const yValue = 20;
+        const zValue = 30;
+
+        document.getElementById("x-coord").textContent = xValue;
+        document.getElementById("y-coord").textContent = yValue;
+        document.getElementById("z-coord").textContent = zValue;
+    </script>
+</footer>
+<footer>
+  <p>&copy; MIMD LAB, DBEB, IIT DELHI 2024</p>
+</footer>
+
+</body>
+</html>
+
+

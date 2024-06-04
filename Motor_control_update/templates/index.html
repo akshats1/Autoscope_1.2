@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Motor Control</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        button, input {
+            width: 200px;
+            height: 50px;
+            margin: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Motor Control Panel</h1>
+    <input type="number" id="steps" placeholder="Enter steps" value="1000">
+    <button onclick="sendCommand('/motor1_forward')">Motor 1 Forward</button>
+    <button onclick="sendCommand('/motor1_backward')">Motor 1 Backward</button>
+    <button onclick="sendCommand('/motor2_forward')">Motor 2 Forward</button>
+    <button onclick="sendCommand('/motor2_backward')">Motor 2 Backward</button>
+    <button onclick="sendCommand('/motor3_forward')">Motor 3 Forward</button>
+    <button onclick="sendCommand('/motor3_backward')">Motor 3 Backward</button>
+
+    <script>
+        function sendCommand(endpoint) {
+            const steps = document.getElementById('steps').value;
+            fetch(`${endpoint}?steps=${steps}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    alert(data);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert(`Failed to send command: ${error}`);
+                });
+        }
+    </script>
+</body>
+</html>
+

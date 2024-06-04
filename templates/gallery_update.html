@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="static/gallery.css">
+<script type="text/javascript" src="static/script_gall.js"></script>
+</head>
+<body>
+<h1>Autoscope Gallery</h1>
+  <div class="overlay"><img src="blah" id="top" hidden=True>
+    <span id="close" hidden=True onclick=do_close()><b><u>CLOSE(X)</u></b></span>
+  </div>
+  <div class="cx" style="background-color:#fff;">
+    {% for path in paths %}
+    <img src='cdn/{{ path }}' height=200 width=200 onclick="clicked_img(this)" >
+    {% endfor %}
+  </div>
+  
+   <style>
+        /* Optional: Add some styling to your button */
+        #goBackButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50; /* Green */
+            color: white;
+            border: black;
+            border-radius: 5px;
+            position:absolute;
+            top:10px;
+            right:10px;
+        }
+
+        #goBackButton:hover {
+            background-color: #45a049;
+        }
+    </style>
+
+    <!-- The Go Back Button -->
+    <button id="goBackButton" onclick="goBack()">Go Back</button>
+
+    <script>
+        // JavaScript function to go back to the previous page
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+
+  
+  
+  
+  
+</body>
+</html>

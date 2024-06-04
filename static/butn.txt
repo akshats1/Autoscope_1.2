@@ -1,0 +1,2 @@
+<input type="file" id="file-input" name="files" multiple style="display:none;">
+            <button onclick="document.getElementById('file-input').click();" class="footer-button">

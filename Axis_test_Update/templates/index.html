@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microscope Control</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        async function calibrate(magnification) {
+            const response = await fetch(`/calibrate?magnification=${magnification}`, {
+                method: 'POST'
+            });
+            const result = await response.json();
+            document.getElementById('x-position').innerText = result.x;
+            document.getElementById('y-position').innerText = result.y;
+            document.getElementById('z-position').innerText = result.z;
+        }
+
+        async function initialize() {
+            const response = await fetch(`/initialize`, {
+                method: 'POST'
+            });
+            const result = await response.json();
+            document.getElementById('x-position').innerText = result.x;
+            document.getElementById('y-position').innerText = result.y;
+            document.getElementById('z-position').innerText = result.z;
+        }
+
+        async function move(axis, direction) {
+            const steps = document.getElementById(`${axis}-steps`).value;
+            const response = await fetch(`/move?axis=${axis}&direction=${direction}&steps=${steps}`, {
+                method: 'POST'
+            });
+            const result = await response.json();
+            document.getElementById('x-position').innerText = result.x;
+            document.getElementById('y-position').innerText = result.y;
+            document.getElementById('z-position').innerText = result.z;
+        }
+    </script>
+</head>
+<body>
+    <h1>Microscope Control Interface</h1>
+    
+    <h2>Calibration</h2>
+    <button onclick="calibrate('4x')">4x Calibration</button>
+    <button onclick="calibrate('10x')">10x Calibration</button>
+    <button onclick="calibrate('40x')">40x Calibration</button>
+
+    <h2>Initialization</h2>
+    <button onclick="initialize()">Initialize (Go to X=0, Y=0, Z=0)</button>
+
+    <h2>Move X Axis</h2>
+    <input type="number" id="x-steps" placeholder="Enter steps">
+    <button onclick="move('x', 'clock')">Move X Clockwise</button>
+    <button onclick="move('x', 'anticlock')">Move X Anticlockwise</button>
+
+    <h2>Move Y Axis</h2>
+    <input type="number" id="y-steps" placeholder="Enter steps">
+    <button onclick="move('y', 'clock')">Move Y Clockwise</button>
+    <button onclick="move('y', 'anticlock')">Move Y Anticlockwise</button>
+
+    <h2>Current Positions</h2>
+    <p>X Position: <span id="x-position">0</span></p>
+    <p>Y Position: <span id="y-position">0</span></p>
+    <p>Z Position: <span id="z-position">0</span></p>
+</body>
+</html>
+

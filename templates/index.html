@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css' )}}" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Raspberry Pi Menu</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Right menu bar */
+        .right-menu {
+            position: fixed;
+            top: 0;
+            right: -200px; /* Initially hidden */
+            height: 100vh;
+            width: 200px;
+            background-color: #333;
+            z-index: 1000;
+            transition: right 0.3s ease-in-out;
+        }
+        .right-menu.show {
+            right: 0;
+        }
+        .right-menu button {
+            display: block;
+            width: 100%;
+            padding: 15px 0;
+            background-color: #555;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            left: 100px;
+        }
+        /* Bottom menu bar */
+        .bottom-menu {
+            position: fixed;
+            bottom: -60px; /* Initially hidden */
+            left: 0;
+            width: 100vw;
+            height: 60px;
+            background-color: #333;
+            z-index: 1000;
+            transition: bottom 0.3s ease-in-out;
+        }
+        .bottom-menu.show {
+            bottom: 0;
+        }
+        .bottom-menu button {
+            float: left;
+            width: 20%;
+            height: 100%;
+            background-color: #555;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("contextmenu", function(e) {
+            e.preventDefault();
+        });
+    </script>
+    <div class="video-container">
+        <img src='/video_feed' alt="Autoscope V1 Video Stream" width="800" height="480" id="video_stream" class="video-feed" />
+    </div>
+    <button class="menu-button" onclick="toggleRightMenu()"><i class="fas fa-bars menu-icon"></i></button>
+
+<!-- Font Awesome JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    
+
+    <!-- Right menu bar -->
+    <div class="right-menu" id="rightMenu">
+        <!-- <button onclick="buttonClicked(1)">Button 1</button> -->
+       <!-- <button class="camera-capture-btn">-->
+    <button onclick="captureImage()" class="camera-capture-btn">
+        <i class="fas fa-camera"></i> Capture <script src="{{ url_for('static',filename='scripts.js') }}"></script>  
+        </button>
+      
+        <div class="button-container">
+            <button class="record-btn start" onclick="toggleTimer()" disabled>
+                <button onclick="captureVideo()"  class="record-btn-start">
+                <i class="fas fa-record-vinyl"></i> Start Recording
+            <button class="record-btn stop" disabled>
+                 <button onclick="stopVideo()" class="record-btn stop">
+                <i class="fas fa-stop-circle"></i> Stop Recording 
+            </button>
+        </div>
+        
+      <!--  <button onclick="{{url_for('start_page')}}">Main Menu</button>-->
+       <button onclick="location.href='{{url_for('start_page_alias' )}}'">Main Menu</button>
+
+        <button class="motor-btn">
+        <button onclick="initialize()" class ="motor-btn">
+            <i class="fas fa-fan"></i> <i class="fas fa-bolt"></i>Reset</button>
+
+            <button onclick="location.href='{{url_for('gallery_page')}}'" class="gallery-button">
+                <i class="fas fa-images"></i> 
+              </button>
+    </div>
+
+    <!-- Bottom menu bar -->
+    <div class="bottom-menu" id="bottomMenu">
+        <button onclick="buttonClicked(6)">Button 6</button>
+        <button onclick="buttonClicked(7)">Button 7</button>
+        <button onclick="buttonClicked(8)">Button 8</button>
+        <button onclick="buttonClicked(9)">Button 9</button>
+        <button onclick="buttonClicked(10)">Button 10</button>
+    </div>
+
+    <script>
+        // Function to toggle visibility of right menu
+        function toggleRightMenu() {
+            var rightMenu = document.getElementById("rightMenu");
+            rightMenu.classList.toggle("show");
+        }
+
+        // Function to handle button clicks
+        function buttonClicked(buttonNumber) {
+            alert("Button " + buttonNumber + " clicked!");
+        }
+    </script>
+
+<!-- <div class="container">
+    <p>This is your main content area. You can add any HTML elements here.</p>
+</div> -->
+<div class="menu-bar">
+     <script src="{{ url_for('static',filename='scripts.js') }}"></script>
+   
+     
+    <div class="arrow-container">
+         <script src="{{ url_for('static',filename='scripts.js') }}"></script>
+        <!-- Up arrow button -->
+        <!--y axis UP-->
+        
+        <!--<button class="arrow-button up">&#8593;</button>-->
+         <button onclick="move('y', 'clock')" class="arrow-button up">&#8593;</button>
+        
+        <br>
+        <!-- Left and Right arrow buttons -->
+        
+        
+        
+        <!--<button class="arrow-button left">&#8592;</button>-->
+          <script src="{{ url_for('static',filename='scripts.js') }}"></script>
+          <button onclick="move('x', 'clock')" class="arrow-button left">&#8592;</button>
+        
+        <!--<button class="arrow-button right">&#8594;</button>-->
+          <button onclick="move('x', 'anticlock')" class="arrow-button right">&#8594;</button>
+        <br>
+        <!-- Down arrow button -->
+       <!-- <button class="arrow-button down">&#8595;</button>-->
+          <button onclick="move('y', 'anticlock')" class="arrow-button down">&#8595;</button>
+    </div>
+    <div class="arrow-container">
+        <!-- Up arrow button -->
+        <script src="{{ url_for('static',filename='scripts.js') }}"></script>
+       
+       <!--Z Axis-->
+       
+       <!-- <button class="arrow-button up">&#8593;</button>-->
+          <button onclick="move('z', 'anticlock')" class="arrow-button up">&#8593;</button>
+        
+        <br>
+        <!-- Left and Right arrow buttons -->
+        <!-- <button class="arrow-button left">&#8592;</button>
+        <button class="arrow-button right">&#8594;</button> -->
+        <br>
+        <!-- Down arrow button -->
+        <!--<button class="arrow-button down">&#8595;</button>-->
+        <button onclick="move('z', 'clock')" class="arrow-button down">&#8595;</button>
+        
+    </div>
+    <!-- <button class="menu-btn" onclick="alert('Button 1 Clicked')">Button 1</button> -->
+    <!-- <button class="menu-btn" onclick="alert('Button 2 Clicked')">Button 2</button> -->
+    <div class="coordinate-display">
+        <label for="x-coord">X:</label>
+      <!--  <input type="text" id="x-coord" value="0" readonly>-->
+          <span id="x-coord">0</span>
+        
+        
+        <label for="y-coord">Y:</label>
+        <!--<input type="text" id="y-coord" value="0" readonly>-->
+          <span id="y-coord">0</span>
+        
+        <label for="z-coord">Z:</label>
+        <!--<input type="text" id="z-coord" value="0" readonly>-->
+          <span id="z-coord">0</span>
+        
+        
+    </div>
+    <!-- <button class="menu-btn" onclick="alert('Button 3 Clicked')">Button 3</button> -->
+    <label class="switch">
+        <input type="checkbox">
+        <div class="slider slider--0">ON</div>
+        <div class="slider slider--1">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="slider slider--2"></div>
+        <div class="slider slider--3">OFF</div>
+    </label>
+    <!-- <button class="menu-btn" onclick="alert('Button 4 Clicked')">Button 4</button> -->
+    <button class="main-button" onclick="togglePopup()"><i class="fas fa-plus"></i></button>
+
+<!-- Popup container -->
+<div class="popup" id="popup">
+    <!-- Popup buttons -->
+ <!--   <button onclick="buttonClicked('4X')">4X</button>
+    <button onclick="buttonClicked('10X')">10X</button>
+    <button onclick="buttonClicked('40X')">40X</button>
+    -->
+      <button onclick="calibrate('4x')">4x</button>
+    <button onclick="calibrate('10x')">10x</button>
+    <button onclick="calibrate('40x')">40x</button>
+    
+</div>
+
+
+
+
+<!-- Font Awesome JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+<script>
+    // Function to toggle the visibility of the popup
+    function togglePopup() {
+        var popup = document.getElementById("popup");
+        if (popup.style.display === "block") {
+            popup.style.display = "none";
+        } else {
+            popup.style.display = "block";
+        }
+    }
+
+    // Function to handle button clicks in the popup
+    function buttonClicked(option) {
+        alert("You clicked: " + option);
+    }
+</script>
+
+    <!-- <button class="menu-btn" onclick="alert('Button 5 Clicked')">Button 5</button> -->
+    <!-- <button class="menu-button" onclick="location.href='start.html'"><i class="fas fa-bars menu-icon"></i></button> -->
+
+<!-- Font Awesome JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+
+
+
+<div class="input-container">
+    <label for="user-input">Steps:</label>
+    <input type="text" id="steps" placeholder="Steps">
+<script src="{{ url_for('static',filename='scripts.js') }}"></script>  
+</div>
+
+
+<!--Slider-->
+<!--
+<div class="range-slider"><b>Steps:</b>
+    <input class="input-range" orient="vertical" type="range" step="0.5" value="5" min="1" max="10">
+    <span class="range-value"></span>
+    <script>
+        var range = $('.input-range'),
+    value = $('.range-value');
+    
+value.html(range.attr('value'));
+
+range.on('input', function(){
+    value.html(this.value);
+}); 
+    </script>
+</div> 
+
+
+
+-->
+
+
+
+</body>
+</html>

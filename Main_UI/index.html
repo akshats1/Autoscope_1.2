@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Font Awesome CSS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Raspberry Pi Menu</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        /* Right menu bar */
+        .right-menu {
+            position: fixed;
+            top: 0;
+            right: -200px; /* Initially hidden */
+            height: 100vh;
+            width: 200px;
+            background-color: #333;
+            z-index: 1000;
+            transition: right 0.3s ease-in-out;
+        }
+        .right-menu.show {
+            right: 0;
+        }
+        .right-menu button {
+            display: block;
+            width: 100%;
+            padding: 15px 0;
+            background-color: #555;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+            left: 100px;
+        }
+        /* Bottom menu bar */
+        .bottom-menu {
+            position: fixed;
+            bottom: -60px; /* Initially hidden */
+            left: 0;
+            width: 100vw;
+            height: 60px;
+            background-color: #333;
+            z-index: 1000;
+            transition: bottom 0.3s ease-in-out;
+        }
+        .bottom-menu.show {
+            bottom: 0;
+        }
+        .bottom-menu button {
+            float: left;
+            width: 20%;
+            height: 100%;
+            background-color: #555;
+            border: none;
+            color: #fff;
+            font-size: 16px;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="video-container">
+        <img src='/video_feed' alt="Autoscope V1 Video Stream" width="250" height="400" id="video_stream" class="video-feed" />
+    </div>
+    <button class="menu-button" onclick="toggleRightMenu()"><i class="fas fa-bars menu-icon"></i></button>
+
+<!-- Font Awesome JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+    <!-- Menu button to toggle right menu -->
+    <!-- <button id="toggleRightMenu" onclick="toggleRightMenu()">Menu</button> -->
+
+    <!-- Right menu bar -->
+    <div class="right-menu" id="rightMenu">
+        <!-- <button onclick="buttonClicked(1)">Button 1</button> -->
+        <button class="camera-capture-btn">
+        <i class="fas fa-camera"></i>    
+        </button>
+        <!-- <button onclick="buttonClicked(2)">Button 2</button> -->
+        <!-- <button onclick="buttonClicked(3)">Button 3</button> -->
+        <div class="button-container">
+            <button class="record-btn start" onclick="toggleTimer()" disabled>
+                <i class="fas fa-record-vinyl"></i> Start Recording
+            </button>
+            <button class="record-btn stop" disabled>
+                <i class="fas fa-stop-circle"></i> Stop Recording
+            </button>
+        </div>
+        
+        <button onclick="location.href='start.html'">Main Menu</button>
+        
+        <!-- <button onclick="buttonClicked(5)">Button 5</button> -->
+    </div>
+
+    <!-- Bottom menu bar -->
+    <div class="bottom-menu" id="bottomMenu">
+        <button onclick="buttonClicked(6)">Button 6</button>
+        <button onclick="buttonClicked(7)">Button 7</button>
+        <button onclick="buttonClicked(8)">Button 8</button>
+        <button onclick="buttonClicked(9)">Button 9</button>
+        <button onclick="buttonClicked(10)">Button 10</button>
+    </div>
+
+    <script>
+        // Function to toggle visibility of right menu
+        function toggleRightMenu() {
+            var rightMenu = document.getElementById("rightMenu");
+            rightMenu.classList.toggle("show");
+        }
+
+        // Function to handle button clicks
+        function buttonClicked(buttonNumber) {
+            alert("Button " + buttonNumber + " clicked!");
+        }
+    </script>
+
+<!-- <div class="container">
+    <p>This is your main content area. You can add any HTML elements here.</p>
+</div> -->
+<div class="menu-bar">
+    <div class="arrow-container">
+        <!-- Up arrow button -->
+        <button class="arrow-button up">&#8593;</button>
+        <br>
+        <!-- Left and Right arrow buttons -->
+        <button class="arrow-button left">&#8592;</button>
+        <button class="arrow-button right">&#8594;</button>
+        <br>
+        <!-- Down arrow button -->
+        <button class="arrow-button down">&#8595;</button>
+    </div>
+    <div class="arrow-container">
+        <!-- Up arrow button -->
+        <button class="arrow-button up">&#8593;</button>
+        <br>
+        <!-- Left and Right arrow buttons -->
+        <!-- <button class="arrow-button left">&#8592;</button>
+        <button class="arrow-button right">&#8594;</button> -->
+        <br>
+        <!-- Down arrow button -->
+        <button class="arrow-button down">&#8595;</button>
+    </div>
+    <!-- <button class="menu-btn" onclick="alert('Button 1 Clicked')">Button 1</button> -->
+    <!-- <button class="menu-btn" onclick="alert('Button 2 Clicked')">Button 2</button> -->
+    <div class="coordinate-display">
+        <label for="x-coord">X:</label>
+        <input type="text" id="x-coord" value="0" readonly>
+        <label for="y-coord">Y:</label>
+        <input type="text" id="y-coord" value="0" readonly>
+        <label for="z-coord">Z:</label>
+        <input type="text" id="z-coord" value="0" readonly>
+    </div>
+    <!-- <button class="menu-btn" onclick="alert('Button 3 Clicked')">Button 3</button> -->
+    <label class="switch">
+        <input type="checkbox">
+        <div class="slider slider--0">ON</div>
+        <div class="slider slider--1">
+            <div></div>
+            <div></div>
+        </div>
+        <div class="slider slider--2"></div>
+        <div class="slider slider--3">OFF</div>
+    </label>
+    <!-- <button class="menu-btn" onclick="alert('Button 4 Clicked')">Button 4</button> -->
+    <button class="main-button" onclick="togglePopup()"><i class="fas fa-plus"></i></button>
+
+<!-- Popup container -->
+<div class="popup" id="popup">
+    <!-- Popup buttons -->
+    <button onclick="buttonClicked('10X')"><!--<i class="fas fa-check"></i>-->10X</button>
+    <button onclick="buttonClicked('40X')"><!--<i class="fas fa-times"></i>-->40X</button>
+    <button onclick="buttonClicked('100X')"><!--<i class="fas fa-info"></i>-->100X</button>
+</div>
+
+<!-- Font Awesome JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+
+<script>
+    // Function to toggle the visibility of the popup
+    function togglePopup() {
+        var popup = document.getElementById("popup");
+        if (popup.style.display === "block") {
+            popup.style.display = "none";
+        } else {
+            popup.style.display = "block";
+        }
+    }
+
+    // Function to handle button clicks in the popup
+    function buttonClicked(option) {
+        alert("You clicked: " + option);
+    }
+</script>
+
+    <!-- <button class="menu-btn" onclick="alert('Button 5 Clicked')">Button 5</button> -->
+    <!-- <button class="menu-button" onclick="location.href='start.html'"><i class="fas fa-bars menu-icon"></i></button> -->
+
+<!-- Font Awesome JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+</body>
+<div class="input-container">
+    <label for="user-input">Steps:</label>
+    <input type="text" id="user-input" placeholder="Steps">
+</div>
+</html>

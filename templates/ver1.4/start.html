@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            MIMD LAB, DBEB, IIT DELHI 2024
+        </title>
+        <link rel="stylesheet" href="{{url_for('static',filename='style2.css' )}}" type="text/css">
+    </head>
+    <body id="body">
+         <script>
+            document.addEventListener("contextmenu", function(e) {
+                e.preventDefault();
+            });
+        </script>
+    <h2 id="heading_main">Autoscope E</h2>
+        <div class="button-container">
+    <!-- <button>Live Imaging<a href="index.html" target="_blank"></a></button> -->
+    <button id="b1" onclick="location.href='{{url_for('index_page' )}}'">Live Imaging</button>
+    <button id="b1">Gallery</button>
+    <button id="b1">Slide Scan</button>
+    <button id="b1">Shutdown</button>
+  </div>
+
+   
+    <div class="image-container">
+    <!-- <img src="/Users/bhuvanluthra/Desktop/Raspberry PI CODE Autoscope/UI 2/Indian_Institute_of_Technology_Delhi_Logo.svg.png" alt="Your Image Description"> -->
+    <img src="/static/Indian_Institute_of_Technology_Delhi_Logo.svg.png" alt="Indian Institute of Technology Delhi" width="700" height="600">
+</div>
+     <footer>
+        <p>MIMD LAB, IIT Delhi.</p>
+      </footer>
+</html>

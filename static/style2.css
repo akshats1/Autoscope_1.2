@@ -1,0 +1,74 @@
+#body{
+    background-color: black;
+
+}
+
+#heading_main{
+    color: white;
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+.button-container {
+    display: flex;  /* Arrange buttons horizontally */
+    justify-content: center;  /* Center buttons horizontally */
+    align-items: center;  /* Center buttons vertically (optional) */
+    margin: 1rem auto;  /* Add margin for spacing and center horizontally */
+  }
+  
+  button {
+    padding: 1rem 2rem;  /* Add padding for content and spacing */
+    border: none;  /* Remove default border */
+    border-radius: 5px;  /* Add rounded corners */
+    background-color: #ddd;  /* Set default background color */
+    cursor: pointer;  /* Indicate clickable element */
+    transition: background-color 0.2s ease-in-out;  /* Smooth background color change on hover */
+    justify-content: space-between;
+    /* align-items: center; */
+  }
+  
+  button:hover {
+    background-color: #ccc;  /* Change background color on hover */
+  }
+
+
+/* #b1{ */
+    
+  /* display: inline-flex;  Make the button occupy full width on its line */
+  /* margin: 0 auto;  Center horizontally with auto margins */
+  /* padding: 1rem 2rem;  Add padding for content and spacing */
+  /* border: none;  Remove default border */
+  /* border-radius: 5px;  Add rounded corners */
+  /* background-color: #ddd;  Set default background color */
+  /* cursor: pointer;  Indicate clickable element */
+  /* transition: background-color 0.2s ease-in-out;  Smooth */
+  /* text-align: center; */
+  /* justify-content: center; */
+  /* } */
+
+  footer {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+    color: #333;
+  }
+
+  body {
+    margin: 0; /* Remove default body margins */
+    padding: 0; /* Remove default body padding */
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set container height to 100% viewport height */
+}
+
+.image-container img {
+    /* Adjust image width/height as needed */
+    max-width: 100%; /* Allow image to scale down to fit container */
+    max-height: 100%;
+}
+
+  
